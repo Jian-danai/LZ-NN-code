@@ -1,0 +1,13 @@
+start=3375;%3090
+ended=6000;
+numtrain=2000;
+Atr1=pabc06(start:(start+numtrain),3);%训练数据个数numtrain=3000
+%%
+ T = tonndata(Atr1,false,false);
+ trainFcn = 'trainlm';  % lm,br,scg
+ feedbackDelays = 1:10;%y(t-d);<45
+ hiddenLayerSize = [15 20 15];%目前是三层，然后是每层的个数
+ net = narnet(feedbackDelays,hiddenLayerSize,'open',trainFcn);
+ net.layers{1}.transferFcn = 'tansig';%激励函数
+ net.layers{2}.transferFcn = 'logsig';%'logsig' 'tansig' 'purelin'
+ net.layers{3}.transferFcn = 'tansig';

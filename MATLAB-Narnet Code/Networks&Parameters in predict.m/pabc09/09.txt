@@ -1,0 +1,14 @@
+start=3375;%3090----------------------------------
+ended=6001;%
+numtrain=2000;%number of data to be trained--------------------------------
+Atr1=pabc09(start:(start+numtrain),3);%---------------------------
+%%
+%training
+ T = tonndata(Atr1,false,false);
+ trainFcn = 'trainlm';  % lm,br,scg
+ feedbackDelays = 1:10;%y(t-d);<45-------------------------------------
+ hiddenLayerSize = [30 30 30];%;layer and size---------------------------------
+ net = narnet(feedbackDelays,hiddenLayerSize,'open',trainFcn);%training using narnet--------------
+ net.layers{1}.transferFcn = 'tansig';%Activation function------------------------
+ net.layers{2}.transferFcn = 'logsig';%'logsig' 'tansig' 'purelin'---------------
+ net.layers{3}.transferFcn = 'tansig';%tansig------------------------
