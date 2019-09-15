@@ -20,15 +20,6 @@ class _LSTMModel(ts_model.SequentialTimeSeriesModel):
   """A time series model-building example using an RNNCell."""
 
   def __init__(self, num_units, num_features, dtype=tf.float32):
-    """Initialize/configure the model object.
-    Note that we do not start graph building here. Rather, this object is a
-    configurable factory for TensorFlow graphs which are run by an Estimator.
-    Args:
-      num_units: The number of units in the model's LSTMCell.
-      num_features: The dimensionality of the time series (features per
-        timestep).
-      dtype: The floating point data type to use.
-    """
     super(_LSTMModel, self).__init__(
         # Pre-register the metrics we'll be outputting (just a mean here).
         train_output_names=["mean"],
@@ -42,13 +33,6 @@ class _LSTMModel(ts_model.SequentialTimeSeriesModel):
     self._predict_from_lstm_output = None
 
   def initialize_graph(self, input_statistics):
-    """Save templates for components, which can then be used repeatedly.
-    This method is called every time a new graph is created. It's safe to start
-    adding ops to the current default graph here, but the graph should be
-    constructed from scratch.
-    Args:
-      input_statistics: A math_utils.InputStatistics object.
-    """
     super(_LSTMModel, self).initialize_graph(input_statistics=input_statistics)
     self._lstm_cell = tf.nn.rnn_cell.LSTMCell(num_units=self._num_units)
     # Create templates so we don't have to worry about variable reuse.
@@ -86,24 +70,6 @@ class _LSTMModel(ts_model.SequentialTimeSeriesModel):
     return data * variance + mean
 
   def _filtering_step(self, current_times, current_values, state, predictions):
-    """Update model state based on observations.
-    Note that we don't do much here aside from computing a loss. In this case
-    it's easier to update the RNN state in _prediction_step, since that covers
-    running the RNN both on observations (from this method) and our own
-    predictions. This distinction can be important for probabilistic models,
-    where repeatedly predicting without filtering should lead to low-confidence
-    predictions.
-    Args:
-      current_times: A [batch size] integer Tensor.
-      current_values: A [batch size, self.num_features] floating point Tensor
-        with new observations.
-      state: The model's state tuple.
-      predictions: The output of the previous `_prediction_step`.
-    Returns:
-      A tuple of new state and a predictions dictionary updated to include a
-      loss (note that we could also return other measures of goodness of fit,
-      although only "loss" will be optimized).
-    """
     state_from_time, prediction, lstm_state = state
     with tf.control_dependencies(
             [tf.assert_equal(current_times, state_from_time)]):
@@ -126,10 +92,6 @@ class _LSTMModel(ts_model.SequentialTimeSeriesModel):
     return new_state_tuple, {"mean": self._de_transform(next_prediction)}
 
   def _imputation_step(self, current_times, state):
-    """Advance model state across a gap."""
-    # Does not do anything special if we're jumping across a gap. More advanced
-    # models, especially probabilistic ones, would want a special case that
-    # depends on the gap size.
     return state
 
   def _exogenous_input_step(
