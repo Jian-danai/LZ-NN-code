@@ -32,6 +32,10 @@ Take pabc06 as an example.
 
 #Python3-LSTM:
 
+* Requirement: Python3, tensorflow, pandas, matplotlib, numpy, scipy
+
+* The LSTM was trained in iMac. But it will also work well in Linux and Windows.
+
 # Reference
 
 Please cite this in your publication if our work helps your research. 
