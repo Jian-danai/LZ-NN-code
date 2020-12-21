@@ -35,15 +35,15 @@ Take pabc06 as an example.
 * The LSTM was trained in iMac. But it will also work well in Linux and Windows.
 
 See our 3D prediction framework below.
-<center><img src="images/3D Framework.png" width="800" hspace="10"></center>
+<center><img src="images/3D Framework.png" width="500" hspace="10"></center>
 
 # Results
 
-<center><img src="images/2D Prediction.png" width="800" hspace="10"></center>
+<center><img src="images/2D Prediction.png" width="500" hspace="10"></center>
 
 <center>2D Prediction</center>
 
-<center><img src="images/3D Prediction.png" width="800" hspace="10"></center>
+<center><img src="images/3D Prediction.png" width="500" hspace="10"></center>
 
 <center>3D Prediction</center>
 
