@@ -19,12 +19,32 @@ Email: yangbj@zju.edu.cn
 Steps to run the code:
 Take pabc06 as an example.
 
-1.Copy the file(network_test.mat) which is the trained neural network into the folder "code" to replace the original file(also named network_test.mat) in the folder.
-2.Double click the file(predict.m) in the folder "code" to open the file using MATLAB.
-3.Change the parameters in the file(predict.m). The paremeters can be found in the file "/Networks&Parameters in predict.m/pabc06/06.txt". There are 6 parameters need to be changed in the first module of the code(which have been commented with "change parameter"). 
-4.Run the code and you will see the figure including predicted lines.
+* Copy the file(network_test.mat) which is the trained neural network into the folder "code" to replace the original file(also named network_test.mat) in the folder.
 
-Train_combined.m file is used to train the neural network.
+* Double click the file(predict.m) in the folder "code" to open the file using MATLAB.
+
+* Change the parameters in the file(predict.m). The paremeters can be found in the file "/Networks&Parameters in predict.m/pabc06/06.txt". There are 6 parameters need to be changed in the first module of the code(which have been commented with "change parameter"). 
+
+* Run the code and you will see the figure including predicted lines.
+
+* Train_combined.m file is used to train the neural network.
 
 
 #Python3-LSTM:
+
+# Reference
+
+Please cite this in your publication if our work helps your research. 
+
+```
+@article{yang2020applications,
+  title={Applications of neural networks to dynamics simulation of Landau-Zener transitions},
+  author={Yang, Bianjiang and He, Baizhe and Wan, Jiajun and Kubal, Sharvaj and Zhao, Yang},
+  journal={Chemical Physics},
+  volume={528},
+  pages={110509},
+  year={2020},
+  publisher={Elsevier}
+}
+```
+
