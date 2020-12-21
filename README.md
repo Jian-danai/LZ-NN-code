@@ -49,9 +49,9 @@ See our 3D prediction framework below.
 
 # Acknowledgment
 
-This work was done in The Zhao Research Group, Nanyang Technological University, you may find some interesting projects from the [lab](https://www3.ntu.edu.sg/home/zhaoyang/index.html).
+This work was done in [The Zhao Research Group](https://www3.ntu.edu.sg/home/zhaoyang/index.html), Nanyang Technological University, you may find some interesting projects from the [lab](https://www3.ntu.edu.sg/home/zhaoyang/index.html).
 
-We thank Zhongkai Huang, Yubing Liao and Frank Grossmann for helpful discussion and graphics assistance. Competitive Research
+We thank [Zhongkai Huang](https://clkx.yznu.edu.cn/2019/0612/c5217a156985/page.htm), Yubing Liao and Frank Grossmann for helpful discussion and graphics assistance. Competitive Research
 Programme (CRP) under Project No. NRFCRP5-2009-04 and from the Singapore Ministry of Education Academic Research Fund Tier 1 (Grant
 Nos. RG106/15, RG102/17, and RG190/18) is gratefully acknowledged.
 
